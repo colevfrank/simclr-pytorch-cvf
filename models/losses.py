@@ -6,7 +6,6 @@ import diffdist
 import torch.distributed as dist
 import pdb
 
-
 def gather(z):
     gather_z = [torch.zeros_like(z) for _ in range(torch.distributed.get_world_size())]
     gather_z = diffdist.functional.all_gather(gather_z, z)
@@ -51,7 +50,7 @@ class NTXent(nn.Module):
         self.norm = 1.
 
     def forward(self, z, get_map=False):
-        pdb.set_trace()
+        #pdb.set_trace()
         n = z.shape[0]
         assert n % self.multiplier == 0
 
