@@ -50,7 +50,9 @@ class NTXent(nn.Module):
         self.norm = 1.
 
     def forward(self, z, get_map=False):
-        #pdb.set_trace()
+        print("**INDISE NTXENT**")
+        print("Type:", type(z))
+        print("Shape:", z.shape)
         n = z.shape[0]
         assert n % self.multiplier == 0
 
