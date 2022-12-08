@@ -1,6 +1,7 @@
 import os
 import random
 import time
+import pdb
 
 import torch
 import torch.backends.cudnn as cudnn
@@ -170,6 +171,7 @@ def main_worker(gpu, ngpus, args):
             logs = {}
             if not args.eval_only:
                 # forward pass and compute loss
+                pdb.set_trace()
                 logs = model.train_step(batch, cur_iter)
                 loss = logs['loss']
 
