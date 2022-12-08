@@ -135,6 +135,8 @@ class SimCLR(BaseSSL):
         parser.add_argument('--sync_bn', default=True, type=bool,
             help='Syncronises BatchNorm layers between all processes if True'
         )
+        # alternative transforms
+        parser.add_argument('--alt_transforms', default=0, type=int,)
 
     def __init__(self, hparams, device=None):
         super().__init__(hparams)
