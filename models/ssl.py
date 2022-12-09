@@ -238,17 +238,33 @@ class SimCLR(BaseSSL):
 
     def transforms(self):
         if self.hparams.data == 'cifar':
-            train_transform = transforms.Compose([
-                transforms.RandomResizedCrop(
-                    32,
-                    scale=(self.hparams.scale_lower, 1.0),
-                    interpolation=PIL.Image.BICUBIC,
-                ),
-                transforms.RandomHorizontalFlip(),
-                datautils.get_color_distortion(s=self.hparams.color_dist_s),
-                transforms.ToTensor(),
-                datautils.Clip(),
-            ])
+            if self.hparams.alt_transforms == 0:
+                train_transform = transforms.Compose([
+                    transforms.RandomResizedCrop(
+                        32,
+                        scale=(self.hparams.scale_lower, 1.0),
+                        interpolation=PIL.Image.BICUBIC,
+                    ),
+                    transforms.RandomHorizontalFlip(),
+                    datautils.get_color_distortion(s=self.hparams.color_dist_s),
+                    transforms.ToTensor(),
+                    datautils.Clip(),
+                ])
+            elif self.hparams.alt_transforms == 1:
+                train_transforms = transforms.Compose([
+                    transforms.RandomResizedCrop(
+                        32,
+                        scale=(self.hparams.scale_lower, 1.0),
+                        interpolation=PIL.Image.BICUBIC,
+                    ),
+                    transforms.RandomHorizontalFlip(),
+                    datautils.get_color_distortion(s=self.hparams.color_dist_s),
+                    transforms.ElasticTransform(),
+                    transforms.ToTensor(),
+                    datautils.Clip(),
+                ])
+            elif self.hparams.alt_transforms == 2:
+                pass
             test_transform = train_transform
 
         elif self.hparams.data == 'imagenet':
