@@ -260,7 +260,8 @@ class SimCLR(BaseSSL):
                     ),
                     transforms.RandomHorizontalFlip(),
                     datautils.get_color_distortion(s=self.hparams.color_dist_s),
-                    ElasticTransform(),
+                    transforms.GreyScale(),
+                    #transforms.ElasticTransform(),
                     transforms.ToTensor(),
                     datautils.Clip(),
                 ])
