@@ -7,9 +7,9 @@ config_file: null
 data: cifar
 dist: ddp
 dist_address: '127.0.0.1:1234'
-eval_freq: 1200
-iters: 12000
-log_freq: 12
+eval_freq: 200
+iters: 2000
+log_freq: 2
 lr: 4.0
 lr_schedule: warmup-anneal
 multiplier: 3
@@ -18,7 +18,7 @@ node_rank: 0
 opt: lars
 problem: sim-clr
 root: 'none'
-save_freq: 1200
+save_freq: 1000
 scale_lower: 0.08
 seed: -1
 sync_bn: true
