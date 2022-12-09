@@ -251,7 +251,7 @@ class SimCLR(BaseSSL):
                     datautils.Clip(),
                 ])
             elif self.hparams.alt_transforms == 1:
-                from utils.datautils import ElasticTransform
+                #from utils.datautils import ElasticTransform
                 train_transforms = transforms.Compose([
                     transforms.RandomResizedCrop(
                         32,
