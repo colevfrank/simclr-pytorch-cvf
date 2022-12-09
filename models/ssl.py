@@ -251,6 +251,7 @@ class SimCLR(BaseSSL):
                     datautils.Clip(),
                 ])
             elif self.hparams.alt_transforms == 1:
+                from utils.datautils import ElasticTransform
                 train_transforms = transforms.Compose([
                     transforms.RandomResizedCrop(
                         32,
@@ -259,7 +260,7 @@ class SimCLR(BaseSSL):
                     ),
                     transforms.RandomHorizontalFlip(),
                     datautils.get_color_distortion(s=self.hparams.color_dist_s),
-                    transforms.ElasticTransform(),
+                    ElasticTransform(),
                     transforms.ToTensor(),
                     datautils.Clip(),
                 ])
