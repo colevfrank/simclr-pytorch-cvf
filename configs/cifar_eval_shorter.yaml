@@ -29,7 +29,7 @@ save_freq: 100000000
 scale_lower: 0.08
 seed: -1
 status: fail
-test_bs: 1024
+test_bs: 512
 tmp: false
 warmup: 0.0
 weight_decay: 0.0001
