@@ -171,7 +171,7 @@ def main_worker(gpu, ngpus, args):
             logs = {}
             if not args.eval_only:
                 # forward pass and compute loss
-                print("BATCH INFO: ", len(batch))
+                #print("BATCH INFO: ", len(batch))
                 #pdb.set_trace()
                 logs = model.train_step(batch, cur_iter)
                 loss = logs['loss']
